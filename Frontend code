@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .slideshow-container {
+            max-width: 800px;
+            position: relative;
+            margin: auto;
+        }
+
+        .fade {
+            animation: fade 2s infinite; /* Adjust the animation duration as needed */
+        }
+
+        @keyframes fade {
+            0%, 100% {
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 1;
+            }
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .background-container {
+            background: url("C:/Users/91894/Downloads/img.jpg") no-repeat center center fixed; /* Set the background image */
+            background-size: cover; /* Cover the background container */
+            height: 300px; /* Set the height of the container */
+            position: relative; /* Position property for absolute positioning within the container */
+        }
+
+        .content {
+            position: absolute; /* Position the content absolutely within the container */
+            top: 50%; /* Align content vertically at 50% from the top */
+            left: 50%; /* Align content horizontally at 50% from the left */
+            transform: translate(-50%, -50%); /* Center the content using translation */
+            text-align: center; /* Center the text content */
+            color: white; /* Text color */
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .images-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .upload-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        img {
+            width: 200px; /* Adjust the size as needed */
+            margin: 10px 0;
+        }
+    </style>
+    <title>A Pest Detetion and Pesticide Recommendation Website</title>
+</head>
+<body>
+
+    <div class="background-container">
+        <div class="content">
+            <h1 style="color: green;">PestAID</h1>
+            <h2>Welcome to PestAid - Where Agriculture Meets Innovation!</h2>
+            <p>At PestAid, we are passionate about fostering healthy crops and sustainable farming practices. Our mission is to empower farmers and gardeners with cutting-edge solutions for pest detection, pesticide recommendations, and disease detection in rice plants. We bring together technology and agriculture to ensure the prosperity of your crops.</p>
+        </div>
+    </div>
+
+    <h1>ABOUT</h1>
+    <p>Through PestAid we detect mainly 9 pests. When you upload the pest image at the "Upload pest image:" option we will give you the name of the pest and best chemical pesticides available for them with online shopping links. From that links you can purchase your chemical pesticide (Different shopping links for same pesticide are available) also you can make your own natural pestcide at the "Make Your Own Natural Pesticide:" option.
+        Here you can choose the ingredients available in your hand with quantity. Then we will recommend you the possible Natural Pesticide remedies. By following that you can make your own natural pesticide for your plant. At "Upload Diseased Plant Image:" option you can upload the image of your diseased plant(Only Rice plant disease detection is available at this stage). We will provide you the name of the disease and description of the disease.<p>
+
+    <div class="slideshow-container">
+        <div class="fade">
+            <img class="image" src="C:/Users/91894/Downloads/logo.png" alt="Image 1">
+        </div>
+        <div class="fade">
+            <img class="image" src="C:/Users/91894/Downloads/OIP.jpeg" alt="Image 1">
+        </div>
+        <div class="fade">
+            <img class="image" src="C:/Users/91894/Downloads/o-FRUIT-PESTICIDES-facebook.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("fade");
+            
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            
+            slideIndex++;
+            
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            
+            slides[slideIndex - 1].style.display = "block";  
+            
+            setTimeout(showSlides, 2000); // Change slide every 2 seconds (adjust as needed)
+        }
+    </script>
+
+    <div class="images-container">
+        <img src="C:/Users/91894/Downloads/det.png"> <!-- Replace 'pest_image.jpg' with your image file -->
+        
+    </div>
+
+    <div class="upload-container">
+        <label for="pestImage">Upload Pest Image:</label>
+        <input type="file" id="pestImage" accept="image/*">
+        <button onclick="detectImage()">Detect Image</button>
+    </div>
+
+    <div class="images-container">
+        <img src="C:/Users/91894/Downloads/PEST.png" alt="Diseased Plant Image"> <!-- Replace 'disease_image.jpg' with your image file -->
+    </div>
+
+    <div class="upload-container">
+        <label for="diseaseImage">Upload Diseased Plant Image:</label>
+        <input type="file" id="diseaseImage" accept="image/*">
+        <button onclick="detectImage()">Detect Image</button>
+    </div>
+
+    <script>
+        function detectImage() {
+            // Add your image detection logic here
+            alert("Images will be detected!");
+        }
+    </script>
+    
+    <h2>Make Your Own Natural Pesticide:</h2>
+
+    <form action="#" method="post"> <!-- You can specify the action and method based on your needs -->
+
+        <label for="ingredient">Choose an ingredient:</label>
+        <select id="ingredient" name="ingredient">
+            <option value="tomato">Tomato</option>
+            <option value="onion">Onion</option>
+            <option value="garlic">Garlic</option>
+            <!-- Add more ingredients as needed -->
+        </select>
+
+        <br>
+
+        <label for="quantity">Enter quantity:</label>
+        <input type="text" id="quantity" name="quantity" placeholder="Quantity">
+
+        <br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
